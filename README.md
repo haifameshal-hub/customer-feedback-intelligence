@@ -1,177 +1,87 @@
-# Customer Feedback Intelligence
+# CX Insight
 
-An AI-powered customer feedback analysis and decision-support application that transforms unstructured customer comments into structured, actionable business insights using the Gemini API.
+An AI-powered customer feedback intelligence platform that helps businesses analyze customer comments and transform them into structured, actionable insights.
 
-## Overview
+## Problem
 
-Customer Feedback Intelligence helps organizations analyze customer feedback efficiently and convert qualitative comments into insights that can support customer experience and business decisions.
+Organizations receive large volumes of customer feedback through different channels, making manual analysis time-consuming and inconsistent.
 
-Instead of manually reviewing large volumes of feedback, the application uses AI to identify sentiment, classify feedback, detect the main issue, assign a priority level, and generate an actionable recommendation.
+Important issues can be difficult to identify quickly, especially when feedback contains mixed sentiments or relates to different business areas.
 
-The application supports both Arabic and English customer feedback through a modern Arabic RTL interface.
+CX Insight addresses this challenge by automatically analyzing customer feedback and highlighting the information that can support faster and more informed business decisions.
 
-## Business Problem
+## Solution & How AI Works
 
-Organizations receive customer feedback from multiple channels, but manually reviewing and categorizing large volumes of comments can be time-consuming and inconsistent.
+CX Insight uses the Gemini API as a pre-trained generative AI model to analyze customer feedback in Arabic and English.
 
-This can make it difficult to:
+The user enters a customer comment, and the system processes the text using Gemini to generate structured insights.
 
-- Identify recurring customer issues.
-- Detect high-priority problems quickly.
-- Understand overall customer sentiment.
-- Convert feedback into actionable recommendations.
-- Support data-driven customer experience decisions.
+### Input
+Customer feedback or review in Arabic or English.
 
-## Solution
+### Output
+The system automatically identifies:
 
-Customer Feedback Intelligence provides an AI-powered workflow that converts customer comments into structured analytical outputs.
+- Sentiment: Positive, Negative, or Neutral
+- Category
+- Main Issue
+- Priority Level
+- Actionable Recommendation
 
-For each customer comment, the system generates:
-
-| Output | Description |
-|---|---|
-| Sentiment | Identifies the feedback as Positive, Neutral, or Negative |
-| Category | Classifies the feedback into the appropriate business category |
-| Main Issue | Extracts the primary issue or concern |
-| Priority | Assigns High, Medium, or Low priority |
-| Recommendation | Generates an actionable recommendation for improvement |
-
-## Key Features
-
-- AI-powered customer feedback analysis
-- Sentiment analysis
-- Automatic feedback categorization
-- Main issue identification
-- Priority classification
-- Actionable business recommendations
-- Single comment analysis
-- Batch feedback analysis
-- Interactive analytics dashboard
-- Feedback history and reporting
-- Filtering and search
-- CSV export
-- Arabic RTL user interface
-- Responsive web design
-
-## How It Works
-
-Customer Feedback  
-→ AI Analysis  
-→ Sentiment Classification  
-→ Category Identification  
-→ Main Issue Detection  
-→ Priority Assessment  
-→ Actionable Recommendation  
-→ Dashboard & Reporting
-
-## Dashboard & Analytics
-
-The dashboard provides a summarized view of analyzed customer feedback, including:
-
-- Total analyzed feedback
-- Sentiment distribution
-- Critical and high-priority issues
-- Most common feedback categories
-- Feedback history
-- Business-oriented recommendations
-
-These insights help transform individual customer comments into information that can support decision-making and service improvement.
-
-## Technology Stack
-
-**Frontend**
-- React
-- TypeScript
-- Vite
-- Tailwind CSS
-
-**Backend**
-- Node.js
-- Express
-
-**AI**
-- Google Gemini API
-- Google GenAI SDK
-
-**Deployment**
-- Render
-
-**Version Control**
-- Git
-- GitHub
+The platform also supports batch feedback analysis, analytics dashboards, feedback history, filtering, and CSV export.
 
 ## Live Demo
 
-The application is deployed and available online:
+CX Insight is deployed as a web application using Render:
 
 https://customer-feedback-intelligence-hdqr.onrender.com
 
-> Note: The application is hosted on a free Render instance. The first request after a period of inactivity may take several seconds while the service starts.
+> Note: The application is hosted on a free Render instance, so the first request after a period of inactivity may take a few seconds to load.
 
-## Example
+## How to Run
 
-### Customer Feedback
+1. Open the live application using the link above.
+2. Enter a customer comment in Arabic or English.
+3. Click the analysis button.
+4. Review the generated sentiment, category, main issue, priority, and recommendation.
+5. Use the batch analysis and dashboard features to analyze multiple customer comments and explore aggregated insights.
 
-> الخدمة بشكل عام ممتازة والتطبيق سهل الاستخدام، لكن واجهت تأخيرًا في تأكيد الطلب ولم تصلني إشعارات توضح حالة الطلب.
+The Gemini API key is securely configured as an environment variable on the server and does not need to be entered by the user.
 
-### AI Analysis
+## Screenshots
 
-**Sentiment:** Positive  
-**Category:** Digital Application & Platform  
-**Priority:** Medium  
-**Main Issue:** Issue in the order completion/status tracking experience  
-**Recommendation:** Improve order-status updates and provide timely notifications to enhance the customer experience.
+Add 2–3 screenshots demonstrating the main features of CX Insight.
 
-## Business Value
+Recommended screenshots:
 
-The project demonstrates how artificial intelligence can support customer experience management by transforming unstructured feedback into structured insights.
+1. Main interface / landing page
+2. Customer feedback analysis results
+3. Analytics dashboard or batch analysis
 
-Potential business benefits include:
+## Project Limitations
 
-- Faster feedback analysis
-- Early identification of customer pain points
-- More consistent feedback classification
-- Better prioritization of issues
-- Improved decision support
-- Actionable recommendations for service improvement
+CX Insight currently depends on AI-generated interpretations, so results may occasionally vary depending on the wording, context, or ambiguity of customer feedback.
 
-## Project Perspective
+Current limitations include:
 
-This project combines concepts from:
+- AI-generated classifications may not always perfectly reflect business-specific terminology.
+- Complex or ambiguous feedback may require human review.
+- The current version uses predefined analysis categories and priority criteria.
+- The system currently relies on the Gemini API for AI processing.
 
-- Business Analysis
-- Data Analysis
-- Artificial Intelligence
-- Customer Experience (CX)
-- Decision Support
-- UI/UX Design
+### Future Improvements
 
-The focus is not only on analyzing text, but on translating customer feedback into insights that can support practical business decisions.
+Future development could include:
 
-## Security
+- Industry-specific classification models and categories
+- More advanced analytics and visualizations
+- Improved multilingual analysis
+- Customizable business rules and priority criteria
+- Integration with CRM and customer support platforms
+- Advanced reporting and automated insight generation
 
-The Gemini API key is stored securely as an environment variable and is not included in the source code or repository.
-
-Environment variable required:
-
-`GEMINI_API_KEY`
-
-## Future Improvements
-
-Future versions may include:
-
-- Advanced trend analysis
-- Additional dashboard visualizations
-- Automated executive summaries
-- Multi-source customer feedback integration
-- Advanced filtering and reporting
-- Improved recommendation logic based on priority level
-- Expanded Arabic NLP capabilities
-
-## Author
+## Project Owner
 
 **Haifa Alharbi**
 
-Information Science | Business Analysis | Data Analysis | AI & Customer Experience
-
-LinkedIn: https://www.linkedin.com/in/haifa-alharbi-
+AI Project – Customer Experience Intelligence
