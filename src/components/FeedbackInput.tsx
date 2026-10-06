@@ -1,5 +1,5 @@
 import React from 'react';
-import { Send, Sparkles, RotateCcw, MessageSquarePlus } from 'lucide-react';
+import { Send, Sparkles, RotateCcw, MessageSquarePlus, CornerDownLeft } from 'lucide-react';
 import { SAMPLE_COMMENTS } from '../data/samples';
 import { PresetSample } from '../types';
 
@@ -32,11 +32,11 @@ export const FeedbackInput: React.FC<FeedbackInputProps> = ({
   };
 
   return (
-    <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs space-y-4">
+    <div className="bg-white rounded-2xl border border-purple-100/90 p-5 sm:p-6 shadow-xs space-y-4">
       {/* Title & Quick Info */}
       <div className="flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-7 h-7 rounded-md bg-slate-100 flex items-center justify-center text-slate-700">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
             <MessageSquarePlus className="w-4 h-4" />
           </div>
           <div>
@@ -52,7 +52,7 @@ export const FeedbackInput: React.FC<FeedbackInputProps> = ({
             type="button"
             onClick={onClear}
             disabled={isLoading}
-            className="text-xs text-slate-500 hover:text-slate-800 flex items-center gap-1 transition-colors px-2 py-1 rounded hover:bg-slate-100"
+            className="text-xs text-purple-700 hover:text-purple-900 hover:bg-purple-50 flex items-center gap-1 transition-colors px-2.5 py-1.5 rounded-lg cursor-pointer"
           >
             <RotateCcw className="w-3.5 h-3.5" />
             <span>تفريغ الحقل</span>
@@ -69,18 +69,22 @@ export const FeedbackInput: React.FC<FeedbackInputProps> = ({
           placeholder="اكتب أو الصق تعليق العميل هنا... (مثال: الشحنة تأخرت 3 أيام ووصل المنتج به كسر، ولم يرد أحد على استفساراتي في الدعم الفني)"
           rows={4}
           disabled={isLoading}
-          className="w-full text-slate-900 placeholder:text-slate-400 bg-slate-50/50 hover:bg-white focus:bg-white border border-slate-200 focus:border-slate-900 rounded-lg p-3.5 text-sm leading-relaxed transition-all resize-y min-h-[110px] outline-none focus:ring-1 focus:ring-slate-900"
+          className="w-full text-slate-900 placeholder:text-slate-400 bg-purple-50/20 hover:bg-white focus:bg-white border border-purple-100 focus:border-purple-600 rounded-xl p-4 text-sm leading-relaxed transition-all resize-y min-h-[120px] outline-none focus:ring-2 focus:ring-purple-100"
         />
-        <div className="flex items-center justify-between mt-1.5 text-xs text-slate-400 px-1">
-          <span>اختصار: اضغط Ctrl + Enter للتحليل السريع</span>
-          <span className="font-mono tabular-nums">{comment.length} حرف</span>
+        <div className="flex items-center justify-between mt-2 text-xs text-slate-400 px-1">
+          <span className="flex items-center gap-1">
+            <CornerDownLeft className="w-3 h-3 text-purple-400" />
+            <span>اضغط Ctrl + Enter للتحليل السريع</span>
+          </span>
+          <span className="font-mono tabular-nums text-purple-600/80">{comment.length} حرف</span>
         </div>
       </div>
 
       {/* Preset samples selector */}
       <div>
-        <div className="text-xs font-semibold text-slate-500 mb-2 flex items-center gap-1.5">
-          <span>نماذج جاهزة للاختبار السريع:</span>
+        <div className="text-xs font-semibold text-slate-600 mb-2.5 flex items-center gap-1.5">
+          <Sparkles className="w-3.5 h-3.5 text-purple-600" />
+          <span>نماذج جاهزة للاختبار الفوري:</span>
         </div>
         <div className="flex flex-wrap gap-2">
           {SAMPLE_COMMENTS.map((sample, idx) => (
@@ -89,9 +93,9 @@ export const FeedbackInput: React.FC<FeedbackInputProps> = ({
               type="button"
               disabled={isLoading}
               onClick={() => handleSelectSample(sample)}
-              className="px-2.5 py-1.5 text-xs font-medium rounded-md border border-slate-200 bg-slate-50 hover:bg-slate-100 hover:border-slate-300 text-slate-700 transition-colors flex items-center gap-1.5 text-right"
+              className="px-3 py-1.5 text-xs font-medium rounded-xl border border-purple-100/90 bg-purple-50/40 hover:bg-purple-100/70 hover:border-purple-200 text-purple-900 transition-all flex items-center gap-1.5 text-right cursor-pointer"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-500" />
               <span>{sample.title}</span>
             </button>
           ))}
@@ -99,12 +103,12 @@ export const FeedbackInput: React.FC<FeedbackInputProps> = ({
       </div>
 
       {/* Action Button */}
-      <div className="pt-2 border-t border-slate-100 flex items-center justify-end gap-3">
+      <div className="pt-2 border-t border-purple-100/60 flex items-center justify-end">
         <button
           type="button"
           onClick={onAnalyze}
           disabled={isLoading || !comment.trim()}
-          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 disabled:bg-slate-300 disabled:cursor-not-allowed rounded-lg shadow-xs transition-all active:scale-[0.99]"
+          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3 text-sm font-bold text-white bg-purple-600 hover:bg-purple-700 disabled:bg-purple-300 disabled:cursor-not-allowed rounded-xl shadow-xs hover:shadow-sm transition-all active:scale-[0.99] cursor-pointer"
         >
           {isLoading ? (
             <>
@@ -113,7 +117,7 @@ export const FeedbackInput: React.FC<FeedbackInputProps> = ({
             </>
           ) : (
             <>
-              <Sparkles className="w-4 h-4 text-amber-400" />
+              <Sparkles className="w-4 h-4 text-purple-200" />
               <span>تحليل التعليق الآن</span>
             </>
           )}
@@ -122,3 +126,4 @@ export const FeedbackInput: React.FC<FeedbackInputProps> = ({
     </div>
   );
 };
+

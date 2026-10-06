@@ -61,16 +61,16 @@ export const BatchAnalyzer: React.FC<BatchAnalyzerProps> = ({ onBatchComplete })
 
   return (
     <div className="space-y-6">
-      <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs space-y-4">
+      <div className="bg-white rounded-2xl border border-purple-100/90 p-5 sm:p-6 shadow-xs space-y-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-7 h-7 rounded-md bg-slate-100 flex items-center justify-center text-slate-700">
+          <div className="flex items-center gap-2.5">
+            <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
               <Layers className="w-4 h-4" />
             </div>
             <div>
               <h2 className="text-sm font-bold text-slate-900">التحليل المجمّع لآراء العملاء (Batch Analysis)</h2>
               <p className="text-xs text-slate-500">
-                أدخل عدة تعليقات (كل تعليق في سطر مستقل) لتحليلها واستخراج الإحصاءات معاً
+                أدخل عدة تعليقات (كل تعليق في سطر مستقل) لتحليلها واستخراج النتائج الإحصائية معاً
               </p>
             </div>
           </div>
@@ -83,12 +83,12 @@ export const BatchAnalyzer: React.FC<BatchAnalyzerProps> = ({ onBatchComplete })
             disabled={isLoading}
             rows={6}
             placeholder="اكتب هنا تعليقات العملاء، كل تعليق في سطر منفصل..."
-            className="w-full text-slate-900 placeholder:text-slate-400 bg-slate-50/50 hover:bg-white focus:bg-white border border-slate-200 focus:border-slate-900 rounded-lg p-3.5 text-sm leading-relaxed outline-none transition-all resize-y font-mono"
+            className="w-full text-slate-900 placeholder:text-slate-400 bg-purple-50/20 hover:bg-white focus:bg-white border border-purple-100 focus:border-purple-600 rounded-xl p-4 text-sm leading-relaxed outline-none transition-all resize-y font-mono"
           />
-          <div className="flex items-center justify-between mt-1 text-xs text-slate-400">
+          <div className="flex items-center justify-between mt-2 text-xs text-slate-500">
             <span>
               الأسطر المكتشفة:{' '}
-              <strong className="text-slate-700">
+              <strong className="text-purple-700 font-bold">
                 {batchText.split('\n').filter((l) => l.trim().length > 5).length}
               </strong>{' '}
               تعليقاً (الحد الأقصى 10)
@@ -97,18 +97,18 @@ export const BatchAnalyzer: React.FC<BatchAnalyzerProps> = ({ onBatchComplete })
         </div>
 
         {error && (
-          <div className="p-3 rounded-lg bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 shrink-0" />
+          <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
             <span>{error}</span>
           </div>
         )}
 
-        <div className="flex items-center justify-end pt-2 border-t border-slate-100">
+        <div className="flex items-center justify-end pt-2 border-t border-purple-100/60">
           <button
             type="button"
             onClick={handleAnalyzeBatch}
             disabled={isLoading}
-            className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-semibold text-white bg-slate-900 hover:bg-slate-800 disabled:bg-slate-300 rounded-lg transition-all"
+            className="inline-flex items-center gap-2 px-7 py-3 text-sm font-bold text-white bg-purple-600 hover:bg-purple-700 disabled:bg-purple-300 rounded-xl shadow-xs hover:shadow-sm transition-all cursor-pointer"
           >
             {isLoading ? (
               <>
@@ -117,7 +117,7 @@ export const BatchAnalyzer: React.FC<BatchAnalyzerProps> = ({ onBatchComplete })
               </>
             ) : (
               <>
-                <Sparkles className="w-4 h-4 text-amber-400" />
+                <Sparkles className="w-4 h-4 text-purple-200" />
                 <span>بدء تحليل الدفعة</span>
               </>
             )}
@@ -128,7 +128,7 @@ export const BatchAnalyzer: React.FC<BatchAnalyzerProps> = ({ onBatchComplete })
       {/* Batch Results View */}
       {results.length > 0 && (
         <div className="space-y-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between px-1">
             <h3 className="text-sm font-bold text-slate-900 flex items-center gap-2">
               <CheckCircle className="w-4 h-4 text-emerald-600" />
               <span>نتائج الدفعة ({results.length} تعليقات محللة)</span>
@@ -145,3 +145,4 @@ export const BatchAnalyzer: React.FC<BatchAnalyzerProps> = ({ onBatchComplete })
     </div>
   );
 };
+

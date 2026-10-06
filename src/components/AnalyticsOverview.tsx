@@ -1,5 +1,16 @@
 import React from 'react';
-import { TrendingUp, AlertTriangle, CheckCircle2, MessageSquare, ShieldAlert } from 'lucide-react';
+import { 
+  TrendingUp, 
+  AlertTriangle, 
+  CheckCircle2, 
+  MessageSquare, 
+  ShieldAlert, 
+  PieChart, 
+  Layers, 
+  ArrowUpRight,
+  Sparkles,
+  BarChart3
+} from 'lucide-react';
 import { FeedbackAnalysis } from '../types';
 
 interface AnalyticsOverviewProps {
@@ -16,6 +27,7 @@ export const AnalyticsOverview: React.FC<AnalyticsOverviewProps> = ({ history })
 
   const highPriority = history.filter((h) => h.priority === 'عالية').length;
   const mediumPriority = history.filter((h) => h.priority === 'متوسطة').length;
+  const lowPriority = history.filter((h) => h.priority === 'منخفضة').length;
 
   const positivePercent = Math.round((positive / total) * 100);
   const negativePercent = Math.round((negative / total) * 100);
@@ -27,106 +39,171 @@ export const AnalyticsOverview: React.FC<AnalyticsOverviewProps> = ({ history })
     categoryCounts[h.category] = (categoryCounts[h.category] || 0) + 1;
   });
 
-  const topCategories = Object.entries(categoryCounts)
-    .sort((a, b) => b[1] - a[1])
-    .slice(0, 3);
+  const sortedCategories = Object.entries(categoryCounts).sort((a, b) => b[1] - a[1]);
+  const topCategories = sortedCategories.slice(0, 4);
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mb-6">
-      {/* 1. Total Feedback */}
-      <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-xs">
-        <div className="flex items-center justify-between text-xs text-slate-500 mb-2 font-medium">
-          <span>إجمالي الآراء المحللة</span>
-          <MessageSquare className="w-4 h-4 text-slate-400" />
-        </div>
-        <div className="flex items-baseline gap-2">
-          <span className="text-2xl font-bold text-slate-900 font-mono tabular-nums">
-            {total}
-          </span>
-          <span className="text-xs text-slate-500">تعليق مدخل</span>
-        </div>
-        <div className="mt-2 text-xs text-slate-400">
-          محدث لحظياً مع كل عملية تحليل
-        </div>
-      </div>
-
-      {/* 2. Sentiment Breakdown */}
-      <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-xs">
-        <div className="flex items-center justify-between text-xs text-slate-500 mb-2 font-medium">
-          <span>توزيع المشاعر (Sentiment)</span>
-          <CheckCircle2 className="w-4 h-4 text-slate-400" />
-        </div>
+    <section className="bg-white rounded-3xl border border-purple-100 p-6 sm:p-8 shadow-xs space-y-6">
+      {/* Section Header */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-purple-100/70">
         <div className="flex items-center gap-3">
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-emerald-700 font-mono tabular-nums">
-              {positivePercent}%
-            </span>
-            <span className="text-[11px] text-slate-500">إيجابي ({positive})</span>
+          <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold">
+            <BarChart3 className="w-5 h-5" />
           </div>
-          <div className="h-7 w-[1px] bg-slate-200" />
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-rose-700 font-mono tabular-nums">
-              {negativePercent}%
-            </span>
-            <span className="text-[11px] text-slate-500">سلبي ({negative})</span>
-          </div>
-          <div className="h-7 w-[1px] bg-slate-200" />
-          <div className="flex flex-col">
-            <span className="text-lg font-bold text-slate-600 font-mono tabular-nums">
-              {neutralPercent}%
-            </span>
-            <span className="text-[11px] text-slate-500">محايد ({neutral})</span>
+          <div>
+            <h2 className="text-base sm:text-lg font-bold text-slate-900 leading-tight">
+              لوحة المؤشرات والتحليلات الإجمالية
+            </h2>
+            <p className="text-xs text-slate-500 mt-0.5">
+              رصد مستمر لمشاعر العملاء، وتوزيع الأولويات، ومجالات التحسين التشغيلي
+            </p>
           </div>
         </div>
-        {/* Progress Bar */}
-        <div className="mt-2.5 h-1.5 w-full bg-slate-100 rounded-full flex overflow-hidden">
-          <div style={{ width: `${positivePercent}%` }} className="bg-emerald-500 h-full" />
-          <div style={{ width: `${negativePercent}%` }} className="bg-rose-500 h-full" />
-          <div style={{ width: `${neutralPercent}%` }} className="bg-slate-400 h-full" />
-        </div>
-      </div>
 
-      {/* 3. High Priority Alert */}
-      <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-xs">
-        <div className="flex items-center justify-between text-xs text-slate-500 mb-2 font-medium">
-          <span>قضايا حرجة (عالية الأولوية)</span>
-          <ShieldAlert className="w-4 h-4 text-rose-500" />
-        </div>
-        <div className="flex items-baseline gap-2">
-          <span className="text-2xl font-bold text-rose-600 font-mono tabular-nums">
-            {highPriority}
+        <div className="flex items-center gap-2 self-start sm:self-auto">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-semibold border border-purple-100">
+            <Sparkles className="w-3.5 h-3.5 text-purple-500" />
+            <span>محدث بالذكاء الاصطناعي</span>
           </span>
-          <span className="text-xs text-slate-500">من {total} تعليق</span>
-        </div>
-        <div className="mt-2 text-xs text-slate-500 flex items-center gap-1.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-          <span>متوسطة: {mediumPriority} تعليق</span>
         </div>
       </div>
 
-      {/* 4. Top Category */}
-      <div className="bg-white rounded-xl border border-slate-200 p-4 shadow-xs">
-        <div className="flex items-center justify-between text-xs text-slate-500 mb-2 font-medium">
-          <span>أبرز مجالات الملاحظات</span>
-          <TrendingUp className="w-4 h-4 text-slate-400" />
-        </div>
-        {topCategories.length > 0 ? (
-          <div className="space-y-1">
-            {topCategories.map(([category, count]) => (
-              <div key={category} className="flex items-center justify-between text-xs">
-                <span className="text-slate-800 font-medium truncate max-w-[120px]">
-                  {category}
-                </span>
-                <span className="text-slate-500 font-mono tabular-nums">
-                  {count} ({Math.round((count / total) * 100)}%)
-                </span>
-              </div>
-            ))}
+      {/* 4 Core KPI Cards */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {/* KPI 1: Total Feedback */}
+        <div className="bg-purple-50/30 rounded-2xl border border-purple-100/90 p-4.5 shadow-2xs">
+          <div className="flex items-center justify-between text-xs text-slate-500 mb-2 font-semibold">
+            <span>إجمالي الآراء المحللة</span>
+            <MessageSquare className="w-4 h-4 text-purple-500" />
           </div>
-        ) : (
-          <div className="text-xs text-slate-400">لا توجد تصنيفات بعد</div>
-        )}
+          <div className="flex items-baseline gap-2">
+            <span className="text-3xl font-extrabold text-slate-900 font-mono tabular-nums">
+              {total}
+            </span>
+            <span className="text-xs text-slate-500 font-medium">تعليق مسجل</span>
+          </div>
+          <div className="mt-2.5 text-xs text-slate-500 flex items-center gap-1">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+            <span>تحديث فوري لكل معاملة</span>
+          </div>
+        </div>
+
+        {/* KPI 2: Sentiment Split */}
+        <div className="bg-white rounded-2xl border border-purple-100/90 p-4.5 shadow-2xs">
+          <div className="flex items-center justify-between text-xs text-slate-500 mb-2 font-semibold">
+            <span>مؤشر المشاعر (Sentiment)</span>
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+          </div>
+          <div className="flex items-center gap-3">
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-emerald-700 font-mono tabular-nums">
+                {positivePercent}%
+              </span>
+              <span className="text-[11px] text-slate-500 font-medium">إيجابي ({positive})</span>
+            </div>
+            <div className="h-7 w-[1px] bg-slate-200" />
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-rose-700 font-mono tabular-nums">
+                {negativePercent}%
+              </span>
+              <span className="text-[11px] text-slate-500 font-medium">سلبي ({negative})</span>
+            </div>
+            <div className="h-7 w-[1px] bg-slate-200" />
+            <div className="flex flex-col">
+              <span className="text-lg font-bold text-slate-600 font-mono tabular-nums">
+                {neutralPercent}%
+              </span>
+              <span className="text-[11px] text-slate-500 font-medium">محايد ({neutral})</span>
+            </div>
+          </div>
+          {/* Visual Progress Bar */}
+          <div className="mt-3 h-2 w-full bg-slate-100 rounded-full flex overflow-hidden">
+            <div style={{ width: `${positivePercent}%` }} className="bg-emerald-500 h-full transition-all" title="إيجابي" />
+            <div style={{ width: `${negativePercent}%` }} className="bg-rose-500 h-full transition-all" title="سلبي" />
+            <div style={{ width: `${neutralPercent}%` }} className="bg-slate-400 h-full transition-all" title="محايد" />
+          </div>
+        </div>
+
+        {/* KPI 3: High Priority Alert */}
+        <div className="bg-white rounded-2xl border border-purple-100/90 p-4.5 shadow-2xs">
+          <div className="flex items-center justify-between text-xs text-slate-500 mb-2 font-semibold">
+            <span>قضايا حرجة (أولوية عالية)</span>
+            <ShieldAlert className="w-4 h-4 text-rose-500" />
+          </div>
+          <div className="flex items-baseline gap-2">
+            <span className="text-3xl font-extrabold text-rose-600 font-mono tabular-nums">
+              {highPriority}
+            </span>
+            <span className="text-xs text-slate-500 font-medium">
+              من {total} ({Math.round((highPriority / total) * 100)}%)
+            </span>
+          </div>
+          <div className="mt-2 text-xs text-slate-600 flex items-center justify-between">
+            <span className="text-amber-700">متوسطة: {mediumPriority}</span>
+            <span className="text-purple-700">منخفضة: {lowPriority}</span>
+          </div>
+        </div>
+
+        {/* KPI 4: Top Category */}
+        <div className="bg-white rounded-2xl border border-purple-100/90 p-4.5 shadow-2xs">
+          <div className="flex items-center justify-between text-xs text-slate-500 mb-2 font-semibold">
+            <span>المجال الأكثر تكراراً</span>
+            <TrendingUp className="w-4 h-4 text-purple-600" />
+          </div>
+          {topCategories.length > 0 ? (
+            <div>
+              <div className="text-base font-bold text-slate-900 truncate">
+                {topCategories[0][0]}
+              </div>
+              <div className="text-xs text-purple-700 mt-1 font-mono tabular-nums">
+                {topCategories[0][1]} تعليقات ({Math.round((topCategories[0][1] / total) * 100)}% من الإجمالي)
+              </div>
+            </div>
+          ) : (
+            <div className="text-xs text-slate-400">لا توجد تصنيفات بعد</div>
+          )}
+          <div className="mt-2 text-[11px] text-slate-500 truncate">
+            {topCategories[1] ? `يليها: ${topCategories[1][0]}` : 'لا تصنيفات إضافية'}
+          </div>
+        </div>
       </div>
-    </div>
+
+      {/* Visual Categories Progress Breakdown Section */}
+      {sortedCategories.length > 0 && (
+        <div className="bg-purple-50/20 rounded-2xl border border-purple-100/70 p-5 space-y-3">
+          <div className="flex items-center justify-between text-xs font-bold text-slate-700">
+            <span className="flex items-center gap-2">
+              <Layers className="w-4 h-4 text-purple-600" />
+              <span>توزيع الملاحظات حسب المجال (Category Breakdown)</span>
+            </span>
+            <span className="text-slate-500 font-mono text-[11px] tabular-nums">
+              {sortedCategories.length} مجالات مصنفة
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 pt-1">
+            {sortedCategories.slice(0, 6).map(([catName, count]) => {
+              const catPercent = Math.round((count / total) * 100);
+              return (
+                <div key={catName} className="bg-white rounded-xl border border-purple-100/70 p-3 shadow-2xs">
+                  <div className="flex items-center justify-between text-xs mb-1.5">
+                    <span className="font-bold text-slate-800">{catName}</span>
+                    <span className="font-mono tabular-nums text-purple-700 font-semibold">
+                      {count} ({catPercent}%)
+                    </span>
+                  </div>
+                  <div className="h-1.5 w-full bg-purple-100/50 rounded-full overflow-hidden">
+                    <div 
+                      style={{ width: `${catPercent}%` }} 
+                      className="bg-purple-600 h-full rounded-full transition-all" 
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
