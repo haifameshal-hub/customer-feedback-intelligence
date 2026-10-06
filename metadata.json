@@ -1,0 +1,6 @@
+{
+  "name": "محلل آراء العملاء الذكي",
+  "description": "نظام ذكي لتحليل آراء وملاحظات العملاء واستخراج المشاعر والتصنيفات والأولويات والتوصيات التنفيذية لاتخاذ قرارات الأعمال.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
