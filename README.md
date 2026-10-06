@@ -1,113 +1,177 @@
 # Customer Feedback Intelligence
 
-An AI-powered customer feedback analysis application designed to transform customer comments into structured, actionable business insights using the Gemini API.
+An AI-powered customer feedback analysis and decision-support application that transforms unstructured customer comments into structured, actionable business insights using the Gemini API.
 
-## Project Overview
+## Overview
 
-Customer Feedback Intelligence helps organizations analyze customer feedback automatically instead of reviewing comments manually.
+Customer Feedback Intelligence helps organizations analyze customer feedback efficiently and convert qualitative comments into insights that can support customer experience and business decisions.
 
-The application converts unstructured customer feedback into structured information that can support business analysis, customer experience improvement, and data-driven decision-making.
+Instead of manually reviewing large volumes of feedback, the application uses AI to identify sentiment, classify feedback, detect the main issue, assign a priority level, and generate an actionable recommendation.
+
+The application supports both Arabic and English customer feedback through a modern Arabic RTL interface.
+
+## Business Problem
+
+Organizations receive customer feedback from multiple channels, but manually reviewing and categorizing large volumes of comments can be time-consuming and inconsistent.
+
+This can make it difficult to:
+
+- Identify recurring customer issues.
+- Detect high-priority problems quickly.
+- Understand overall customer sentiment.
+- Convert feedback into actionable recommendations.
+- Support data-driven customer experience decisions.
+
+## Solution
+
+Customer Feedback Intelligence provides an AI-powered workflow that converts customer comments into structured analytical outputs.
+
+For each customer comment, the system generates:
+
+| Output | Description |
+|---|---|
+| Sentiment | Identifies the feedback as Positive, Neutral, or Negative |
+| Category | Classifies the feedback into the appropriate business category |
+| Main Issue | Extracts the primary issue or concern |
+| Priority | Assigns High, Medium, or Low priority |
+| Recommendation | Generates an actionable recommendation for improvement |
 
 ## Key Features
 
 - AI-powered customer feedback analysis
-- Sentiment classification: Positive, Neutral, or Negative
+- Sentiment analysis
 - Automatic feedback categorization
-- Identification of the main customer issue
-- Priority assessment
+- Main issue identification
+- Priority classification
 - Actionable business recommendations
-- Single feedback analysis
+- Single comment analysis
 - Batch feedback analysis
-- Analysis history and reporting
-- Dashboard with sentiment indicators
-- CSV export functionality
-- Arabic language support
+- Interactive analytics dashboard
+- Feedback history and reporting
+- Filtering and search
+- CSV export
+- Arabic RTL user interface
+- Responsive web design
 
 ## How It Works
 
-Customer Feedback
-→ AI Analysis
-→ Sentiment & Category Classification
-→ Main Issue Identification
-→ Priority Assessment
-→ Actionable Recommendation
+Customer Feedback  
+→ AI Analysis  
+→ Sentiment Classification  
+→ Category Identification  
+→ Main Issue Detection  
+→ Priority Assessment  
+→ Actionable Recommendation  
+→ Dashboard & Reporting
 
-The application uses the Gemini API to analyze customer comments and return structured insights that can be used by business and customer experience teams.
+## Dashboard & Analytics
 
-## Business Value
+The dashboard provides a summarized view of analyzed customer feedback, including:
 
-The project addresses the challenge of manually reviewing large volumes of customer feedback.
+- Total analyzed feedback
+- Sentiment distribution
+- Critical and high-priority issues
+- Most common feedback categories
+- Feedback history
+- Business-oriented recommendations
 
-It helps organizations:
+These insights help transform individual customer comments into information that can support decision-making and service improvement.
 
-- Identify recurring customer issues
-- Detect high-priority problems
-- Understand customer sentiment
-- Organize unstructured feedback
-- Support faster decision-making
-- Generate actionable recommendations
-- Improve customer experience
+## Technology Stack
 
-## Technologies Used
-
-- Google Gemini API
-- Google AI Studio
+**Frontend**
 - React
 - TypeScript
 - Vite
-- Express.js
+- Tailwind CSS
+
+**Backend**
 - Node.js
-- Git & GitHub
+- Express
 
-## Skills Demonstrated
+**AI**
+- Google Gemini API
+- Google GenAI SDK
 
-### Artificial Intelligence
-- Generative AI integration
-- Prompt engineering
-- Structured AI output
-- AI-assisted text classification
+**Deployment**
+- Render
 
-### Data Analysis
-- Unstructured data analysis
-- Sentiment analysis
-- Data categorization
-- Trend identification
-- Reporting and CSV export
+**Version Control**
+- Git
+- GitHub
 
-### Business Analysis
-- Problem identification
-- Business requirements understanding
-- Customer feedback analysis
-- Priority assessment
-- Process improvement
-- Translating customer needs into actionable recommendations
+## Live Demo
+
+The application is deployed and available online:
+
+https://customer-feedback-intelligence-hdqr.onrender.com
+
+> Note: The application is hosted on a free Render instance. The first request after a period of inactivity may take several seconds while the service starts.
 
 ## Example
 
-**Customer Feedback:**
+### Customer Feedback
 
-> "The service was excellent and the employees were helpful, but the application was very slow and the payment process took too long."
+> الخدمة بشكل عام ممتازة والتطبيق سهل الاستخدام، لكن واجهت تأخيرًا في تأكيد الطلب ولم تصلني إشعارات توضح حالة الطلب.
 
-The system analyzes the feedback and produces structured results including:
+### AI Analysis
 
-- Sentiment
-- Category
-- Main Issue
-- Priority
-- Recommendation
+**Sentiment:** Positive  
+**Category:** Digital Application & Platform  
+**Priority:** Medium  
+**Main Issue:** Issue in the order completion/status tracking experience  
+**Recommendation:** Improve order-status updates and provide timely notifications to enhance the customer experience.
 
-## Project Purpose
+## Business Value
 
-This project was developed as a practical AI application demonstrating how generative AI can be integrated with data analysis and business analysis to transform customer feedback into useful business insights.
+The project demonstrates how artificial intelligence can support customer experience management by transforming unstructured feedback into structured insights.
+
+Potential business benefits include:
+
+- Faster feedback analysis
+- Early identification of customer pain points
+- More consistent feedback classification
+- Better prioritization of issues
+- Improved decision support
+- Actionable recommendations for service improvement
+
+## Project Perspective
+
+This project combines concepts from:
+
+- Business Analysis
+- Data Analysis
+- Artificial Intelligence
+- Customer Experience (CX)
+- Decision Support
+- UI/UX Design
+
+The focus is not only on analyzing text, but on translating customer feedback into insights that can support practical business decisions.
 
 ## Security
 
-API keys and environment variables are excluded from the repository using `.gitignore`.
+The Gemini API key is stored securely as an environment variable and is not included in the source code or repository.
 
-No API credentials should be committed directly to the source code.
+Environment variable required:
+
+`GEMINI_API_KEY`
+
+## Future Improvements
+
+Future versions may include:
+
+- Advanced trend analysis
+- Additional dashboard visualizations
+- Automated executive summaries
+- Multi-source customer feedback integration
+- Advanced filtering and reporting
+- Improved recommendation logic based on priority level
+- Expanded Arabic NLP capabilities
 
 ## Author
 
 **Haifa Alharbi**
 
-Information Science | Business Analysis | Data Analysis | AI Applications
+Information Science | Business Analysis | Data Analysis | AI & Customer Experience
+
+LinkedIn: https://www.linkedin.com/in/haifa-alharbi-
