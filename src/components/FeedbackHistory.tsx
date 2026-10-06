@@ -164,18 +164,18 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
   return (
     <div className="space-y-4">
       {/* Search and Filters Hub */}
-      <div className="bg-white rounded-2xl border border-purple-100/90 p-5 sm:p-6 shadow-xs space-y-4">
+      <div className="bg-white dark:bg-[#18122B] rounded-2xl border border-purple-100/90 dark:border-purple-900/50 p-5 sm:p-6 shadow-xs space-y-4 transition-colors">
         {/* Header of Search Hub */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-purple-100/60">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-purple-100/60 dark:border-purple-900/50">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+            <div className="w-8 h-8 rounded-xl bg-purple-50 dark:bg-purple-900/40 text-purple-600 dark:text-purple-300 flex items-center justify-center">
               <SlidersHorizontal className="w-4 h-4" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-slate-900 leading-tight">
+              <h3 className="text-sm font-bold text-slate-900 dark:text-white leading-tight">
                 أدوات البحث وتصفية السجل
               </h3>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-slate-500 dark:text-purple-300/70">
                 ابحث بالكلمات المفتاحية أو صفِّ النتائج حسب التاريخ، التصنيف، الأولوية، أو المشاعر
               </p>
             </div>
@@ -184,7 +184,7 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
           {/* Quick Active Status and Reset Action */}
           <div className="flex items-center gap-2">
             {activeFiltersCount > 0 && (
-              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-50 text-purple-700 text-xs font-semibold border border-purple-200">
+              <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-purple-50 dark:bg-purple-950/60 text-purple-700 dark:text-purple-300 text-xs font-semibold border border-purple-200 dark:border-purple-800/60">
                 <span>{activeFiltersCount} فلاتر مفعّلة</span>
               </span>
             )}
@@ -192,7 +192,7 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
               <button
                 type="button"
                 onClick={handleResetFilters}
-                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-purple-700 hover:text-purple-900 hover:bg-purple-50 rounded-lg transition-colors cursor-pointer"
+                className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-purple-700 dark:text-purple-300 hover:text-purple-900 dark:hover:text-white hover:bg-purple-50 dark:hover:bg-purple-900/40 rounded-lg transition-colors cursor-pointer"
                 title="إعادة ضبط كل الفلاتر"
               >
                 <RotateCcw className="w-3.5 h-3.5" />
@@ -210,13 +210,13 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="ابحث في نص تعليق العميل، المشكلة الرئيسية، التوصية، أو التصنيف..."
-            className="w-full pr-10 pl-9 py-2.5 text-xs sm:text-sm border border-purple-100 rounded-xl bg-purple-50/20 focus:bg-white focus:border-purple-600 outline-none transition-all placeholder:text-slate-400 focus:ring-2 focus:ring-purple-100"
+            className="w-full pr-10 pl-9 py-2.5 text-xs sm:text-sm border border-purple-100 dark:border-purple-800/60 rounded-xl bg-purple-50/20 dark:bg-[#120D22] text-slate-900 dark:text-white focus:bg-white dark:focus:bg-[#120D22] focus:border-purple-600 dark:focus:border-purple-500 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-purple-300/40 focus:ring-2 focus:ring-purple-100 dark:focus:ring-purple-900/40"
           />
           {searchTerm && (
             <button
               type="button"
               onClick={() => setSearchTerm('')}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 p-1 rounded-md"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-purple-300/60 hover:text-slate-600 dark:hover:text-white p-1 rounded-md"
               title="تفريغ البحث"
             >
               <X className="w-3.5 h-3.5" />
@@ -228,14 +228,14 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {/* 1. Date Filter */}
           <div className="space-y-1">
-            <label className="text-[11px] font-bold text-slate-600 flex items-center gap-1">
-              <Calendar className="w-3.5 h-3.5 text-purple-500" />
+            <label className="text-[11px] font-bold text-slate-600 dark:text-purple-300 flex items-center gap-1">
+              <Calendar className="w-3.5 h-3.5 text-purple-500 dark:text-purple-400" />
               <span>تصفية حسب التاريخ</span>
             </label>
             <select
               value={selectedDateRange}
               onChange={(e) => setSelectedDateRange(e.target.value)}
-              className="w-full text-xs border border-purple-100 rounded-xl px-3 py-2 bg-purple-50/30 text-slate-700 outline-none cursor-pointer focus:border-purple-600 focus:bg-white transition-all font-medium"
+              className="w-full text-xs border border-purple-100 dark:border-purple-800/60 rounded-xl px-3 py-2 bg-purple-50/30 dark:bg-[#120D22] text-slate-700 dark:text-purple-200 outline-none cursor-pointer focus:border-purple-600 dark:focus:border-purple-500 focus:bg-white dark:focus:bg-[#120D22] transition-all font-medium"
             >
               <option value="all">كل التواريخ (All Time)</option>
               <option value="today">اليوم فقط (Today)</option>
@@ -247,14 +247,14 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
 
           {/* 2. Category Filter */}
           <div className="space-y-1">
-            <label className="text-[11px] font-bold text-slate-600 flex items-center gap-1">
-              <Tag className="w-3.5 h-3.5 text-purple-500" />
+            <label className="text-[11px] font-bold text-slate-600 dark:text-purple-300 flex items-center gap-1">
+              <Tag className="w-3.5 h-3.5 text-purple-500 dark:text-purple-400" />
               <span>تصفية حسب التصنيف</span>
             </label>
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="w-full text-xs border border-purple-100 rounded-xl px-3 py-2 bg-purple-50/30 text-slate-700 outline-none cursor-pointer focus:border-purple-600 focus:bg-white transition-all font-medium truncate"
+              className="w-full text-xs border border-purple-100 dark:border-purple-800/60 rounded-xl px-3 py-2 bg-purple-50/30 dark:bg-[#120D22] text-slate-700 dark:text-purple-200 outline-none cursor-pointer focus:border-purple-600 dark:focus:border-purple-500 focus:bg-white dark:focus:bg-[#120D22] transition-all font-medium truncate"
             >
               <option value="all">كل التصنيفات ({availableCategories.length} فئات)</option>
               {availableCategories.map((cat) => {
@@ -270,14 +270,14 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
 
           {/* 3. Priority Filter */}
           <div className="space-y-1">
-            <label className="text-[11px] font-bold text-slate-600 flex items-center gap-1">
-              <TrendingUp className="w-3.5 h-3.5 text-purple-500" />
+            <label className="text-[11px] font-bold text-slate-600 dark:text-purple-300 flex items-center gap-1">
+              <TrendingUp className="w-3.5 h-3.5 text-purple-500 dark:text-purple-400" />
               <span>تصفية حسب الأولوية</span>
             </label>
             <select
               value={selectedPriority}
               onChange={(e) => setSelectedPriority(e.target.value)}
-              className="w-full text-xs border border-purple-100 rounded-xl px-3 py-2 bg-purple-50/30 text-slate-700 outline-none cursor-pointer focus:border-purple-600 focus:bg-white transition-all font-medium"
+              className="w-full text-xs border border-purple-100 dark:border-purple-800/60 rounded-xl px-3 py-2 bg-purple-50/30 dark:bg-[#120D22] text-slate-700 dark:text-purple-200 outline-none cursor-pointer focus:border-purple-600 dark:focus:border-purple-500 focus:bg-white dark:focus:bg-[#120D22] transition-all font-medium"
             >
               <option value="all">كل الأولويات</option>
               <option value="عالية">أولوية عالية ({history.filter((h) => h.priority === 'عالية').length})</option>
@@ -288,14 +288,14 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
 
           {/* 4. Sentiment Filter */}
           <div className="space-y-1">
-            <label className="text-[11px] font-bold text-slate-600 flex items-center gap-1">
-              <HeartHandshake className="w-3.5 h-3.5 text-purple-500" />
+            <label className="text-[11px] font-bold text-slate-600 dark:text-purple-300 flex items-center gap-1">
+              <HeartHandshake className="w-3.5 h-3.5 text-purple-500 dark:text-purple-400" />
               <span>تصفية حسب المشاعر</span>
             </label>
             <select
               value={selectedSentiment}
               onChange={(e) => setSelectedSentiment(e.target.value)}
-              className="w-full text-xs border border-purple-100 rounded-xl px-3 py-2 bg-purple-50/30 text-slate-700 outline-none cursor-pointer focus:border-purple-600 focus:bg-white transition-all font-medium"
+              className="w-full text-xs border border-purple-100 dark:border-purple-800/60 rounded-xl px-3 py-2 bg-purple-50/30 dark:bg-[#120D22] text-slate-700 dark:text-purple-200 outline-none cursor-pointer focus:border-purple-600 dark:focus:border-purple-500 focus:bg-white dark:focus:bg-[#120D22] transition-all font-medium"
             >
               <option value="all">كل المشاعر</option>
               <option value="إيجابي">إيجابي ({history.filter((h) => h.sentiment === 'إيجابي').length})</option>
@@ -307,23 +307,23 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
 
         {/* Custom Date Range Picker inputs (Visible when 'custom' is selected) */}
         {selectedDateRange === 'custom' && (
-          <div className="bg-purple-50/40 rounded-xl p-3 border border-purple-100 flex flex-wrap items-center gap-3 animate-in fade-in">
+          <div className="bg-purple-50/40 dark:bg-purple-950/30 rounded-xl p-3 border border-purple-100 dark:border-purple-900/50 flex flex-wrap items-center gap-3 animate-in fade-in">
             <div className="flex items-center gap-2 text-xs">
-              <span className="font-bold text-slate-700">من تاريخ:</span>
+              <span className="font-bold text-slate-700 dark:text-purple-200">من تاريخ:</span>
               <input
                 type="date"
                 value={customStartDate}
                 onChange={(e) => setCustomStartDate(e.target.value)}
-                className="text-xs bg-white border border-purple-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-purple-600"
+                className="text-xs bg-white dark:bg-[#120D22] text-slate-900 dark:text-white border border-purple-200 dark:border-purple-800/60 rounded-lg px-2.5 py-1.5 outline-none focus:border-purple-600 dark:focus:border-purple-500"
               />
             </div>
             <div className="flex items-center gap-2 text-xs">
-              <span className="font-bold text-slate-700">إلى تاريخ:</span>
+              <span className="font-bold text-slate-700 dark:text-purple-200">إلى تاريخ:</span>
               <input
                 type="date"
                 value={customEndDate}
                 onChange={(e) => setCustomEndDate(e.target.value)}
-                className="text-xs bg-white border border-purple-200 rounded-lg px-2.5 py-1.5 outline-none focus:border-purple-600"
+                className="text-xs bg-white dark:bg-[#120D22] text-slate-900 dark:text-white border border-purple-200 dark:border-purple-800/60 rounded-lg px-2.5 py-1.5 outline-none focus:border-purple-600 dark:focus:border-purple-500"
               />
             </div>
             {(customStartDate || customEndDate) && (
@@ -333,7 +333,7 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
                   setCustomStartDate('');
                   setCustomEndDate('');
                 }}
-                className="text-xs text-purple-700 hover:underline cursor-pointer"
+                className="text-xs text-purple-700 dark:text-purple-300 hover:underline cursor-pointer"
               >
                 مسح نطاق التاريخ
               </button>
@@ -342,15 +342,15 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
         )}
 
         {/* Row 3: Action Controls Bar (Sort order, View mode, Clear history, Counts) */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-purple-100/60 text-xs">
+        <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-purple-100/60 dark:border-purple-900/50 text-xs">
           {/* Results Count & Matching feedback */}
-          <div className="text-slate-600">
+          <div className="text-slate-600 dark:text-purple-300/70">
             التعليقات المعروضة:{' '}
-            <strong className="text-purple-700 font-bold font-mono tabular-nums">
+            <strong className="text-purple-700 dark:text-purple-300 font-bold font-mono tabular-nums">
               {filteredHistory.length}
             </strong>{' '}
             من إجمالي{' '}
-            <strong className="text-slate-900 font-bold font-mono tabular-nums">
+            <strong className="text-slate-900 dark:text-white font-bold font-mono tabular-nums">
               {history.length}
             </strong>
           </div>
@@ -360,20 +360,22 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
             <button
               type="button"
               onClick={() => setSortOrder(sortOrder === 'desc' ? 'asc' : 'desc')}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-purple-100 bg-purple-50/30 hover:bg-purple-100/60 text-purple-900 font-medium transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-purple-100 dark:border-purple-800/50 bg-purple-50/30 dark:bg-purple-950/40 hover:bg-purple-100/60 dark:hover:bg-purple-900/60 text-purple-900 dark:text-purple-200 font-medium transition-colors cursor-pointer"
               title="تغيير اتجاه الترتيب الزمني"
             >
-              <ArrowUpDown className="w-3.5 h-3.5 text-purple-600" />
+              <ArrowUpDown className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
               <span>{sortOrder === 'desc' ? 'الأحدث أولاً' : 'الأقدم أولاً'}</span>
             </button>
 
             {/* View Switcher (Table / Cards) */}
-            <div className="flex items-center p-1 bg-purple-50/60 border border-purple-100/60 rounded-xl">
+            <div className="flex items-center p-1 bg-purple-50/60 dark:bg-purple-950/40 border border-purple-100/60 dark:border-purple-800/40 rounded-xl">
               <button
                 type="button"
                 onClick={() => setViewMode('table')}
                 className={`px-3 py-1.5 font-semibold rounded-lg transition-all cursor-pointer ${
-                  viewMode === 'table' ? 'bg-purple-600 text-white shadow-xs' : 'text-slate-600 hover:text-purple-700'
+                  viewMode === 'table' 
+                    ? 'bg-purple-600 text-white shadow-xs' 
+                    : 'text-slate-600 dark:text-purple-300/70 hover:text-purple-700 dark:hover:text-white'
                 }`}
               >
                 جدول تنفيذي
@@ -382,7 +384,9 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
                 type="button"
                 onClick={() => setViewMode('cards')}
                 className={`px-3 py-1.5 font-semibold rounded-lg transition-all cursor-pointer ${
-                  viewMode === 'cards' ? 'bg-purple-600 text-white shadow-xs' : 'text-slate-600 hover:text-purple-700'
+                  viewMode === 'cards' 
+                    ? 'bg-purple-600 text-white shadow-xs' 
+                    : 'text-slate-600 dark:text-purple-300/70 hover:text-purple-700 dark:hover:text-white'
                 }`}
               >
                 بطاقات
@@ -394,7 +398,7 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
               <button
                 type="button"
                 onClick={onClearAll}
-                className="text-xs text-rose-600 hover:bg-rose-50 px-2.5 py-1.5 rounded-xl border border-transparent hover:border-rose-200 transition-colors flex items-center gap-1 cursor-pointer font-medium"
+                className="text-xs text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 px-2.5 py-1.5 rounded-xl border border-transparent hover:border-rose-200 dark:hover:border-rose-800/60 transition-colors flex items-center gap-1 cursor-pointer font-medium"
                 title="مسح كل السجل"
               >
                 <Trash2 className="w-3.5 h-3.5" />
@@ -407,21 +411,21 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
 
       {/* Main Display: Table or Cards */}
       {filteredHistory.length === 0 ? (
-        <div className="bg-white rounded-2xl border border-purple-100 p-12 text-center shadow-xs space-y-3">
-          <div className="w-12 h-12 rounded-full bg-purple-50 mx-auto flex items-center justify-center text-purple-400">
+        <div className="bg-white dark:bg-[#18122B] rounded-2xl border border-purple-100 dark:border-purple-900/50 p-12 text-center shadow-xs space-y-3 transition-colors">
+          <div className="w-12 h-12 rounded-full bg-purple-50 dark:bg-purple-900/40 mx-auto flex items-center justify-center text-purple-400 dark:text-purple-300">
             <AlertCircle className="w-6 h-6" />
           </div>
-          <h3 className="text-sm font-bold text-slate-800">
+          <h3 className="text-sm font-bold text-slate-800 dark:text-white">
             لا توجد تعليقات مطابقة لمعايير البحث والتصفية
           </h3>
-          <p className="text-xs text-slate-500 max-w-sm mx-auto">
+          <p className="text-xs text-slate-500 dark:text-purple-300/70 max-w-sm mx-auto">
             جرب تعديل كلمات البحث أو اختيار "كل التواريخ" و"كل التصنيفات" لعرض التعليقات المسجلة
           </p>
           {activeFiltersCount > 0 && (
             <button
               type="button"
               onClick={handleResetFilters}
-              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200 rounded-xl transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 hover:bg-purple-100 dark:hover:bg-purple-900/60 border border-purple-200 dark:border-purple-800/60 rounded-xl transition-all cursor-pointer"
             >
               <RotateCcw className="w-3.5 h-3.5" />
               <span>إعادة ضبط كافة الفلاتر والبحث</span>
@@ -429,11 +433,11 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
           )}
         </div>
       ) : viewMode === 'table' ? (
-        <div className="bg-white rounded-2xl border border-purple-100/90 shadow-xs overflow-hidden">
+        <div className="bg-white dark:bg-[#18122B] rounded-2xl border border-purple-100/90 dark:border-purple-900/50 shadow-xs overflow-hidden transition-colors">
           <div className="overflow-x-auto">
             <table className="w-full text-right border-collapse">
               <thead>
-                <tr className="bg-purple-50/40 border-b border-purple-100 text-xs font-bold text-slate-700">
+                <tr className="bg-purple-50/40 dark:bg-purple-950/60 border-b border-purple-100 dark:border-purple-900/50 text-xs font-bold text-slate-700 dark:text-purple-200">
                   <th className="py-3.5 px-4 whitespace-nowrap">التاريخ والوقت</th>
                   <th className="py-3.5 px-4">تعليق العميل</th>
                   <th className="py-3.5 px-3">Sentiment</th>
@@ -444,21 +448,21 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
                   <th className="py-3.5 px-3 text-center">إجراءات</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-purple-50 text-xs">
+              <tbody className="divide-y divide-purple-50 dark:divide-purple-900/40 text-xs">
                 {filteredHistory.map((item) => {
                   const sentimentColor =
                     item.sentiment === 'إيجابي'
-                      ? 'text-emerald-700 bg-emerald-50 border-emerald-200'
+                      ? 'text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/40 border-emerald-200 dark:border-emerald-800/60'
                       : item.sentiment === 'سلبي'
-                      ? 'text-rose-700 bg-rose-50 border-rose-200'
-                      : 'text-slate-700 bg-slate-100 border-slate-200';
+                      ? 'text-rose-700 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800/60'
+                      : 'text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700';
 
                   const priorityColor =
                     item.priority === 'عالية'
-                      ? 'bg-rose-100 text-rose-800'
+                      ? 'bg-rose-100 dark:bg-rose-950/60 text-rose-800 dark:text-rose-300'
                       : item.priority === 'متوسطة'
-                      ? 'bg-amber-100 text-amber-800'
-                      : 'bg-purple-100 text-purple-800';
+                      ? 'bg-amber-100 dark:bg-amber-950/60 text-amber-800 dark:text-amber-300'
+                      : 'bg-purple-100 dark:bg-purple-950/60 text-purple-800 dark:text-purple-300';
 
                   const formattedDate = new Date(item.timestamp).toLocaleDateString('ar-SA', {
                     month: 'short',
@@ -468,14 +472,14 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
                   });
 
                   return (
-                    <tr key={item.id} className="hover:bg-purple-50/20 transition-colors">
+                    <tr key={item.id} className="hover:bg-purple-50/20 dark:hover:bg-purple-950/30 transition-colors">
                       {/* Date & Time */}
-                      <td className="py-3.5 px-4 whitespace-nowrap text-slate-500 font-mono text-[11px]">
+                      <td className="py-3.5 px-4 whitespace-nowrap text-slate-500 dark:text-purple-300/60 font-mono text-[11px]">
                         {formattedDate}
                       </td>
 
                       {/* Comment */}
-                      <td className="py-3.5 px-4 max-w-[200px] text-slate-800 truncate" title={item.comment}>
+                      <td className="py-3.5 px-4 max-w-[200px] text-slate-800 dark:text-purple-100 truncate" title={item.comment}>
                         {item.comment}
                       </td>
 
@@ -487,12 +491,12 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
                       </td>
 
                       {/* Category */}
-                      <td className="py-3.5 px-3 whitespace-nowrap font-semibold text-slate-800">
+                      <td className="py-3.5 px-3 whitespace-nowrap font-semibold text-slate-800 dark:text-purple-200">
                         {item.category}
                       </td>
 
                       {/* Main Issue */}
-                      <td className="py-3.5 px-4 max-w-[180px] text-slate-700 truncate font-medium" title={item.mainIssue}>
+                      <td className="py-3.5 px-4 max-w-[180px] text-slate-700 dark:text-purple-200/80 truncate font-medium" title={item.mainIssue}>
                         {item.mainIssue}
                       </td>
 
@@ -504,7 +508,7 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
                       </td>
 
                       {/* Recommendation */}
-                      <td className="py-3.5 px-4 max-w-[240px] text-slate-700 truncate" title={item.recommendation}>
+                      <td className="py-3.5 px-4 max-w-[240px] text-slate-700 dark:text-purple-200/80 truncate" title={item.recommendation}>
                         {item.recommendation}
                       </td>
 
@@ -514,11 +518,11 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
                           <button
                             type="button"
                             onClick={() => handleCopyFormatted(item)}
-                            className="p-1.5 text-purple-600 hover:text-purple-900 hover:bg-purple-50 rounded-lg transition-colors cursor-pointer"
+                            className="p-1.5 text-purple-600 dark:text-purple-300 hover:text-purple-900 dark:hover:text-white hover:bg-purple-50 dark:hover:bg-purple-900/50 rounded-lg transition-colors cursor-pointer"
                             title="نسخ النتيجة بالصيغة القياسية"
                           >
                             {copiedId === item.id ? (
-                              <Check className="w-3.5 h-3.5 text-emerald-600" />
+                              <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                             ) : (
                               <Copy className="w-3.5 h-3.5" />
                             )}
@@ -526,7 +530,7 @@ export const FeedbackHistory: React.FC<FeedbackHistoryProps> = ({
                           <button
                             type="button"
                             onClick={() => onDelete(item.id)}
-                            className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer"
+                            className="p-1.5 text-slate-400 dark:text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/40 rounded-lg transition-colors cursor-pointer"
                             title="حذف"
                           >
                             <Trash2 className="w-3.5 h-3.5" />

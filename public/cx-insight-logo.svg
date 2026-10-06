@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 140" fill="none">
+  <defs>
+    <linearGradient id="cxTopGrad" x1="20" y1="20" x2="120" y2="70" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#9C7EEE" />
+      <stop offset="100%" stop-color="#8763E8" />
+    </linearGradient>
+    <linearGradient id="cxBottomGrad" x1="20" y1="90" x2="110" y2="140" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#35236E" />
+      <stop offset="100%" stop-color="#2E1C65" />
+    </linearGradient>
+    <linearGradient id="cxTailGrad" x1="40" y1="120" x2="105" y2="135" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4A3492" />
+      <stop offset="60%" stop-color="#9375E8" />
+      <stop offset="100%" stop-color="#B49FF0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Logo Mark -->
+  <g transform="translate(10, 0)">
+    <!-- Top Arc of 'C' -->
+    <path d="M106 38 C90 22, 60 20, 40 36 C18 54, 16 90, 24 114 C25 90, 38 48, 72 44 C88 42, 100 48, 106 56 C112 50, 114 44, 106 38 Z" fill="url(#cxTopGrad)" />
+    <!-- Bottom Body of 'C' -->
+    <path d="M24 114 C32 136, 58 148, 86 142 C104 138, 114 126, 112 118 C104 116, 92 124, 78 126 C54 128, 36 114, 32 94 C30 84, 30 76, 32 68 C22 84, 20 98, 24 114 Z" fill="url(#cxBottomGrad)" />
+    <!-- Inner Lavender Highlight -->
+    <path d="M66 128 C82 130, 96 124, 108 116 C112 114, 116 116, 114 122 C110 132, 96 142, 82 142 C74 142, 68 136, 66 128 Z" fill="url(#cxTailGrad)" />
+    <!-- Bar 1 -->
+    <circle cx="68" cy="106" r="8" fill="#B59FF2" />
+    <!-- Bar 2 -->
+    <rect x="85" y="86" width="16" height="36" rx="8" fill="#7A56E2" />
+    <!-- Bar 3 -->
+    <rect x="109" y="62" width="18" height="60" rx="9" fill="#35236E" />
+  </g>
+
+  <!-- Text "CX Insight" -->
+  <text x="165" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="54" font-weight="900" fill="#1E1644">CX</text>
+  <text x="250" y="90" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="54" font-weight="400" fill="#1E1644">Insight</text>
+
+  <!-- Arabic Subtitle -->
+  <text x="165" y="122" font-family="'IBM Plex Sans Arabic', -apple-system, sans-serif" font-size="14" font-weight="500" fill="#58487A">منصة ذكية لتحليل آراء العملاء وتحويلها إلى رؤى قابلة للتنفيذ</text>
+</svg>
